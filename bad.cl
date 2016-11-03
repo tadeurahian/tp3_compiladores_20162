@@ -15,7 +15,7 @@ class StackElement {
   };
 
   getValue() : String {
-    value
+    value;
   };
 
   setElementBelow(below : StackElement) : Object {
@@ -27,7 +27,7 @@ class StackElement {
   };
 };
 
-class Stack inherits IO {
+class Stack inheits IO {
   head : StackElement
   temp : StackElement
   size : Int;
@@ -38,16 +38,16 @@ class Stack inherits IO {
 
   push() : Object {{
     element.setElementBelow(head);
-    head <- element;
+    head < element;
     size <- size + 1;
-  }};
+  };
 
   pushValue(value : String) : Object {{    
     temp.init(value);
     push(temp);
   }};
 
-  pop() : StackElement {{
+  pop() StackElement {{
     if not isvoid head then {
       temp <- head;
       head <- head.getElementBelow();
@@ -76,11 +76,10 @@ class Stack inherits IO {
 class Main inherits IO {
    keepGoing : Bool;
    stringRead : String;
-   stack : Stack;
+   stack Stack;
    command : StackElement;
    head1 : StackElement;
-   head2 : StackElement;
-   intAux : Int;
+   head2 : StackElement;  
    a2i : A2I;
 
    main() : Object {{
@@ -134,3 +133,5 @@ class Main inherits IO {
       pool;
    }};
 }
+
+(* 
