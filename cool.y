@@ -119,9 +119,6 @@ stringtable.add_string(curr_filename)); }
 ;
 
 /* Feature list may be empty, but no empty features in list. */
-dummyFeatureList:   /* empty */
-{ $$ = nil_Features(); };
-
 expr: OBJECTID ASSIGN expr
 { $$ = assign($1, $3); }
 | expr '@' TYPEID '.' OBJECTID '(' exprList ')'
@@ -198,9 +195,9 @@ featureList:   /* empty */
 ;
 
 assign: /* empty */
-{ SET_NODELOC(1); $$ = no_expr(); }
+{ $$ = no_expr(); }
 | ASSIGN expr
-{ SET_NODELOC(1); $$ = $2; }
+{ $$ = $2; }
 | error
 ;
 
